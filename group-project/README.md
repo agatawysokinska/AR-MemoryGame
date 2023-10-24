@@ -57,7 +57,7 @@ Allan Kirui -  the leader of the group - responsible for UI
 
 Aleksandra Wójcikowska - responsible for game logic, UI and animations
 
-Agata Wysokińska - responsible for documentation, visual effects and graphics 
+Agata Wysokińska - responsible for documentation, UI, visual effects and graphics 
 
 Michał Boczoń - responsible for game logic and UI
 
