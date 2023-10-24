@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.Networking;
+
+public class CardRotation : NetworkBehaviour
+{
+    private Touch touch;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        float degreesPerSecond = 20;
+        ; // only object owner(player) moves the objects
+        // Handle screen touches.
+<<<<<<< HEAD
+        NetworkClient[] clients = NetworkClient.allClients;
+        foreach (NetworkClient client in clients)
+        {
+            int client_ID = client.connection.connectionId;
+            Debug.Log("Client ID: " + client_ID);
+        }
+=======
+>>>>>>> b387663eb44929467c7127a4237fccf62ec04ba4
+
+        if (Input.touchCount > 0)
+        {
+            var clientId = NetworkManager.Singleton.LocalClientId;
+<<<<<<< HEAD
+            Debug.Log("Local client ID: "+ clientId);
+=======
+            Debug.Log("Local client ID: " + clientId);
+>>>>>>> b387663eb44929467c7127a4237fccf62ec04ba4
+            //TouchPhase touchPhase = TouchPhase.Ended;
+            if (!IsOwner)
+            {
+                GetComponent<NetworkObject>().ChangeOwnership(clientId);
+            }
+
+            touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Ended)
+            {
+                transform.Rotate(new Vector3(0, degreesPerSecond, 0) * Time.deltaTime);
+            }
+
+        }
+
+        //GetComponent<NetworkObject>().RemoveOwnership();
+    }
+}
